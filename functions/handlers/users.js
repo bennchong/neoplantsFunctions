@@ -14,6 +14,12 @@ exports.signup = (req, res) => {
     password: req.body.password,
     confirmPassword: req.body.confirmPassword,
     userHandle: req.body.userHandle,
+    fullName: req.body.fullName,
+    nric: req.body.nric,
+    blockNum: req.body.blockNum,
+    floorNum: req.body.floorNum,
+    unitNum: req.body.unitNum,
+    vegChoice: req.body.vegChoice
   };
   
   const { valid, errors } = validateSignupData(newUser);

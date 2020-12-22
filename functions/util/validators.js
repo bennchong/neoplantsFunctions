@@ -10,9 +10,17 @@ const isEmail = (email) => {
   else return false;
 }
 
+const isNric = (nric) => {
+  const regEx = /(?i)^[STFG]\d{7}[A-Z]$/
+  if(nric.match(regEx)) return true;
+  else return false;
+}
+
 
 exports.validateSignupData = (newUser) => {
   let errors = {};
+
+   
  
    if(isEmpty(newUser.email)) {
      errors.email = 'Must not be empty';
