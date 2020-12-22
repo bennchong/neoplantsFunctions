@@ -20,8 +20,26 @@ const isNric = (nric) => {
 exports.validateSignupData = (newUser) => {
   let errors = {};
 
-   
- 
+  if(isEmpty(newUser.fullName)) {
+    errors.fullName = 'Please enter your full name'
+  }
+
+  if(isEmpty(newUser.nric)) {
+    errors.nric = 'Please enter your NRIC'
+  }else if(!isNric(newUser.nric)) {
+    errors.nric = 'Please enter your valid NRIC'
+  } 
+
+  if(isEmpty(newUser.blockNum)) {
+    errors.blockNum = 'Please enter your block number'
+  }
+  if(isEmpty(newUser.floorNum)) {
+    errors.floorNum = 'Please enter your floor number'
+  }
+  if(isEmpty(newUser.unitNum)) {
+    errors.unitNum = 'Please enter your unit number'
+  }
+
    if(isEmpty(newUser.email)) {
      errors.email = 'Must not be empty';
    }else if(!isEmail(newUser.email)) {
