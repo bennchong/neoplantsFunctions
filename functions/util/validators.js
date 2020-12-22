@@ -5,13 +5,13 @@ const isEmpty = (string) => {
 }
 
 const isEmail = (email) => {
-  const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regEx = /^[ST]\d{7}[A-Z]$/;
   if(email.match(regEx)) return true;
   else return false;
 }
 
 const isNric = (nric) => {
-  const regEx = /(?i)^[STFG]\d{7}[A-Z]$/
+  const regEx = /^[STFG]\d{7}[A-Z]$/
   if(nric.match(regEx)) return true;
   else return false;
 }
@@ -20,25 +20,25 @@ const isNric = (nric) => {
 exports.validateSignupData = (newUser) => {
   let errors = {};
 
-  if(isEmpty(newUser.fullName)) {
-    errors.fullName = 'Please enter your full name'
-  }
+  // if(isEmpty(newUser.fullName)) {
+  //   errors.fullName = 'Please enter your full name'
+  // }
 
-  if(isEmpty(newUser.nric)) {
-    errors.nric = 'Please enter your NRIC'
-  }else if(!isNric(newUser.nric)) {
-    errors.nric = 'Please enter your valid NRIC'
-  } 
+  // if(isEmpty(newUser.nric)) {
+  //   errors.nric = 'Please enter your NRIC'
+  // }else if(!isNric(newUser.nric)) {
+  //   errors.nric = 'Please enter your valid NRIC'
+  // } 
 
-  if(isEmpty(newUser.blockNum)) {
-    errors.blockNum = 'Please enter your block number'
-  }
-  if(isEmpty(newUser.floorNum)) {
-    errors.floorNum = 'Please enter your floor number'
-  }
-  if(isEmpty(newUser.unitNum)) {
-    errors.unitNum = 'Please enter your unit number'
-  }
+  // if(isEmpty(newUser.blockNum)) {
+  //   errors.blockNum = 'Please enter your block number'
+  // }
+  // if(isEmpty(newUser.floorNum)) {
+  //   errors.floorNum = 'Please enter your floor number'
+  // }
+  // if(isEmpty(newUser.unitNum)) {
+  //   errors.unitNum = 'Please enter your unit number'
+  // }
 
    if(isEmpty(newUser.email)) {
      errors.email = 'Must not be empty';
